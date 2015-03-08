@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Ticket do
 
-  describe "class of quantity" do
+  describe "type checks" do
     
     it "creates quantity as an integer" do
       quantity = "5"
@@ -13,7 +13,7 @@ RSpec.describe Ticket do
       row = "2"
       location = "Tucson, az"
       ticket = Ticket.create(quantity: quantity, date: date, event: event, section: section, row: row, location: location, venue: venue)
-      expect(ticket.quantity.class).to be(Fixnum)
+      expect(ticket.quantity.class).to be_an_instance_of(Fixnum)
     end
   end
 
