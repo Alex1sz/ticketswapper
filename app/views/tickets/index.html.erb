@@ -1,0 +1,11 @@
+<h1> Ticket Index </h1>
+
+<ul>
+  <% @tickets.each do |ticket| %>
+    <li>
+      <a href="/tickets/<%= ticket.id %>"><%= ticket.event %>, <%= ticket.date %> </a><br />
+      Location: <%= ticket.location %><br />
+      Quantity of Tickets: <%= ticket.quantity %>
+    </li>
+  <% end %>
+</ul>     
