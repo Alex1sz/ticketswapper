@@ -1,0 +1,24 @@
+<h1>Edit your Listing</h1>
+
+<%= form_for(@ticket) do |f| %>
+  <%= f.label :event %>
+  <%= f.text_field :event %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+
+  <%= f.label :date %>
+  <%= f.date_select :date %>
+
+  <%= f.label :quantity %>
+  <%= f.text_field :quantity %>
+
+  <%= f.label :row %>
+  <%= f.text_field :row %>
+
+  <%= f.label :venue %>
+  <%= f.text_field :venue %>
+
+  <%= f.submit "Save changes" %>
+
+<% end %>  

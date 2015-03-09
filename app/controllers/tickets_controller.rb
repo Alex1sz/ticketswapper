@@ -13,12 +13,25 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.build(ticket_params)
+    @ticket = Ticket.new(ticket_params)
 
     if @ticket.save
-      redirect_to root_url
+      flash[:success] = "Succesfully added your listing!"
+      redirect_to @ticket
     else
       render 'new'
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @ticket.update_attributes(user_params)
+      flash[:success] = "Listing Updated"
+      redirect_to @ticket
+    else
+      render 'edit'
     end
   end
 
