@@ -101,7 +101,7 @@ RSpec.describe Ticket do
       quantity = "1"
       venue = "Staples Center"
       notes = "hip"
-      ticket = Ticket.create(quantity: quantity, event: "UGK", date: date, section: "ga", row: "ga", venue: venue, location: "nyc", notes: note)
+      ticket = Ticket.create(quantity: quantity, event: "UGK", date: date, section: "ga", row: "ga", venue: venue, location: "nyc", notes: notes)
       expect(ticket).not_to be_valid 
     end
   end
