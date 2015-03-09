@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Ticket do
 
-  describe "type checks" do
+  describe "class of quantity" do
     
     it "creates quantity as an integer" do
       quantity = "5"
@@ -12,17 +12,22 @@ RSpec.describe Ticket do
       section = "a"
       row = "2"
       location = "Tucson, az"
-      ticket = Ticket.create(quantity: quantity, date: date, event: event, section: section, row: row, location: location, venue: venue)
-      expect(ticket.quantity.class).to be_an_instance_of(Fixnum)
+      notes = "Looking to trade this set of tickets for a different we2 tourdate"
+      ticket = Ticket.create(quantity: quantity, date: date, event: event, section: section, row: row, location: location, venue: venue, notes: notes)
+      expect(ticket.quantity.class).to be(Fixnum)
     end
   end
 
 
   describe "Validations" do
-
+  
     it "validates numericality of quantity" do
       quantity = "five"
-      ticket = Ticket.create(quantity: quantity)
+      date = Date.new(2015,3,14)
+      venue = "house of blues"
+      location = "san diego, ca"
+      notes = "Looking to trade this set of tickets for a different we2 tourdate"
+      ticket = Ticket.create(quantity: quantity, event: "we2", date: date, section: "a", row: "1", venue: venue, location: location, notes: notes)
       expect(ticket).not_to be_valid
     end
 
@@ -31,7 +36,8 @@ RSpec.describe Ticket do
       date = Date.new(2015,3,14)
       venue = "house of blues"
       location = "san diego, ca"
-      ticket = Ticket.create(quantity: quantity, event: "we2", date: date, section: "a", row: "1", venue: venue, location: location)
+      notes = "Looking to trade this set of tickets for a different we2 tourdate"
+      ticket = Ticket.create(quantity: quantity, event: "we2", date: date, section: "a", row: "1", venue: venue, location: location, notes: notes)
       expect(ticket).not_to be_valid
     end
 
@@ -40,7 +46,8 @@ RSpec.describe Ticket do
       date = Date.new(2015,4,1)
       venue = "rose bowl"
       location = "pasadena, ca"
-      ticket = Ticket.create(quantity: quantity, event: "se1", date: date, section: "c", row: "2", venue: venue, location: location)
+      notes = "Looking to trade this set of tickets for a different we2 tourdate"
+      ticket = Ticket.create(quantity: quantity, event: "se1", date: date, section: "c", row: "2", venue: venue, location: location, notes: notes)
       expect(ticket).not_to be_valid
     end
 
@@ -49,7 +56,8 @@ RSpec.describe Ticket do
       date = Date.new(2015,4,19)
       venue = "the paradise"
       location = "boston, ma"
-      ticket = Ticket.create(quantity: quantity, event: "UGK", date: date, section: "GA", row: "ga", venue: venue, location: location)
+      notes = "Looking to trade this set of tickets for a different we2 tourdate"
+      ticket = Ticket.create(quantity: quantity, event: "UGK", date: date, section: "GA", row: "ga", venue: venue, location: location, notes: notes)
       expect(ticket).not_to be_valid
     end
 
@@ -59,7 +67,8 @@ RSpec.describe Ticket do
       event = "paul mccartney"
       location = "los angeles, ca"
       venue = "staples center"
-      ticket = Ticket.create(event: event, date: date, quantity: "1", section: "109A", row: row, venue: venue, location: location)
+      notes = "Looking to trade this set of tickets for a different we2 tourdate"
+      ticket = Ticket.create(event: event, date: date, quantity: "1", section: "109A", row: row, venue: venue, location: location, notes: notes)
       expect(ticket).not_to be_valid
     end
 
@@ -67,21 +76,33 @@ RSpec.describe Ticket do
       date = Date.new(2015,1,3)
       location = "foxboro, ma"
       venue = ""
-      ticket = Ticket.create(event: "mvp", date: date, quantity: "1", section: "133B", row: "1", venue: venue, location: location)
+      notes = "Looking to trade this set of tickets for a different we2 tourdate"
+      ticket = Ticket.create(event: "mvp", date: date, quantity: "1", section: "133B", row: "1", venue: venue, location: location, notes: notes)
       expect(ticket).not_to be_valid
     end
 
     it "validates presence of date" do
       date = ""
-      ticket = Ticket.create(event: "Fyf", date: date, quantity: "1", section: "10", row: "GA", venue: "hifi", location: "bangor, me")
+      notes = "Looking to trade this set of tickets for a different we2 tourdate"
+      ticket = Ticket.create(event: "Fyf", date: date, quantity: "1", section: "10", row: "GA", venue: "hifi", location: "bangor, me", notes: notes)
       expect(ticket).not_to be_valid
     end
 
     it "validates presence of section" do
       date = Date.new(2015,3,14)
+      notes = "Looking to trade this set of tickets for a different we2 tourdate"
       section = ""
-      ticket = Ticket.create(event: "fyf", date: date, quantity: "1", section: section, row: "GA", venue: "hifi", location: "tucson, az")
+      ticket = Ticket.create(event: "fyf", date: date, quantity: "1", section: section, row: "GA", venue: "hifi", location: "tucson, az", notes: notes)
       expect(ticket).not_to be_valid
+    end
+
+    it "validates length of notes and ensures a minimum length of characters" do
+      date = Date.new(2015,4,10)
+      quantity = "1"
+      venue = "Staples Center"
+      notes = "hip"
+      ticket = Ticket.create(quantity: quantity, event: "UGK", date: date, section: "ga", row: "ga", venue: venue, location: "nyc", notes: note)
+      expect(ticket).not_to be_valid 
     end
   end
 end

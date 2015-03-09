@@ -3,6 +3,6 @@ class Ticket < ActiveRecord::Base
 
   validates :quantity, numericality: { only_integer: true,
                                       greater_than: 0,
-                                      less_than: 0  }
+                                      less_than: 100  }
 
 end
