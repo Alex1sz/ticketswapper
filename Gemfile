@@ -44,6 +44,7 @@ group :development, :test do
   # purge data from db on every test run
   gem 'database_cleaner'
   gem 'rubocop'
+  gem 'capybara'
 end
 
 group :production do
