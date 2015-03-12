@@ -1,6 +1,11 @@
-<h1>Ticket # <%= @ticket.id %> </h1>
-Event: <%= @ticket.event %><br />
-Date of Event: <%= @ticket.date %> <br />
-City: <%= @ticket.location %> <br />
-Quantity of Tickets: <%= @ticket.quantity %><br />
-Description: <%= @ticket.description %><br />
+<div class="ui page centered grid">
+  <div class="fourteen wide column">
+    <div class="ui raised segment">
+      <div class="ui black ribbon label">Ticket Id: <%= @ticket.id %></div>
+      <h4 class="ui center aligned header"><%= @ticket.event %> (<%= @ticket.location %>)
+      <div class="sub header"> <%= format_date(@ticket.date) %> </div></h4>
+      Quantity: <%= @ticket.quantity %><br />
+      Description: <%= @ticket.description %><br />
+    </div>
+  </div>
+</div>

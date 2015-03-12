@@ -1,25 +1,29 @@
-<h1>Add Tickets</h1>
+<div class="ui page centered grid">
+  <div class="fourteen wide column">
+    <h3 class="ui center aligned header">Add Tickets</h3>
 
-<%= form_for(@ticket) do |f| %>
+    <%= form_for(@ticket, :html => {:class => "ui raised small form segment"}) do |f| %>
 
-  <%= f.label :event %>
-  <%= f.text_field :event %>
+      <%= f.label :event %>
+      <%= f.text_field :event %>
 
-  <%= f.label :location %>
-  <%= f.text_field :location %>
+      <%= f.label :location %>
+      <%= f.text_field :location %>
 
-  <%= f.label :date %>
-  <%= f.date_select :date %>
+      <%= f.label :date %>
+      <%= f.date_select :date, { :order => [:month, :day, :year], :prompt => { :month => 'Month', :day => 'Day', :year => 'Year'} } %>
 
-  <%= f.label :quantity %>
-  <%= f.text_field :quantity %>
+      <%= f.label :quantity %>
+      <%= f.text_field :quantity %>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+      <%= f.label :description %>
+      <%= f.text_area :description, :placeholder => "Please provide a brief description of your tickets and what you want in exchange. Include seating info, general admission or seat, section, and row." %>
 
-  <%= f.submit "Create listing" %>
+      <%= f.submit "Create listing", :class => "ui fluid blue button" %>
+    <% end %>
 
-<% end %>  
+  </div>
+</div>  
