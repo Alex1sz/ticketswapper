@@ -24,12 +24,15 @@ class TicketsController < ApplicationController
   end
 
   def edit
+    @ticket = Ticket.find(params[:id])
   end
 
   def update
-    if @ticket.update_attributes(user_params)
+    ticket = Ticket.find(params[:id])
+
+    if ticket.update_attributes(ticket_params)
       flash[:success] = "Listing Updated"
-      redirect_to @ticket
+      redirect_to ticket
     else
       render 'edit'
     end

@@ -1,24 +1,28 @@
-<h1>Edit your Listing</h1>
+<div class="ui page centered grid">
+  <h1 class="ui header">Edit your Listing</h1>
+  <div class="fourteen wide column">
 
-<%= form_for(@ticket) do |f| %>
-  <%= f.label :event %>
-  <%= f.text_field :event %>
+    <%= form_for @ticket, url: {action: "update"}, :html => {:class => "ui raised form segment"} do |f| %>
+      <%= f.label :event %>
+      <%= f.text_field :event %>
 
-  <%= f.label :location %>
-  <%= f.text_field :location %>
+      <%= f.label :location %>
+      <%= f.text_field :location %>
 
-  <%= f.label :date %>
-  <%= f.date_select :date %>
+      <%= f.label :date %>
+      <%= f.date_select :date, { :order => [:month, :day, :year], :prompt => { :month => 'Select month', :day => 'Select day', :year => 'Select Year'} } %>
 
-  <%= f.label :quantity %>
-  <%= f.text_field :quantity %>
+      <%= f.label :quantity %>
+      <%= f.text_field :quantity %>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
 
-  <%= f.submit "Save changes" %>
+      <%= f.submit "Save changes", :class => "ui fluid blue button" %>
+    <% end %>
 
-<% end %>  
+  </div>
+</div>
