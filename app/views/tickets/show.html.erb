@@ -12,13 +12,19 @@
   </div>
 </div>
 <div class="ui page centered grid">
+  <div class="row"></div>
+  <div class="row"></div>
   <div class="fourteen wide column">
-    <div class="ui raised segment">
-      <div class="ui black ribbon label">Ticket Id: <%= @ticket.id %></div>
-      <h4 class="ui center aligned header"><%= @ticket.event %> (<%= @ticket.location %>)
-      <div class="sub header"> <%= format_date(@ticket.date) %> </div></h4>
-      Quantity: <%= @ticket.quantity %><br />
-      Description: <%= @ticket.description %><br />
+    <div class="ui vertical segment">
+      <div class="ui raised segment">
+        <div class="ui top left attached black label">Ticket Id: <%= @ticket.id %></div>
+        <h2 class="ui header"><%= @ticket.event %></h2>
+        <%= format_date(@ticket.date) %>
+        <%= @ticket.location %><br />
+        Quantity: <%= @ticket.quantity %><br />
+        Description: <%= @ticket.description %><br />
+        Contact: <a href="mailto:<%= @ticket.email %>"><%= @ticket.email %></a>
+      </div>
     </div>
   </div>
 </div>

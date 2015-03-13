@@ -13,10 +13,9 @@
 </div>
 <div class="ui page centered grid">
   <div class="fourteen wide column">
-    <h3 class="ui center aligned header">Add Tickets</h3>
+    <h3 class="ui header">Add Tickets</h3>
 
     <%= form_for(@ticket, :html => {:class => "ui raised form segment"}) do |f| %>
-    
       <% if @ticket.errors.any? %>
         <div class="ui error form segment">
           <div class="ui error message">
