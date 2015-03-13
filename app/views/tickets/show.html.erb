@@ -19,7 +19,7 @@
       <div class="ui raised segment">
         <div class="ui top left attached black label">Ticket Id: <%= @ticket.id %></div>
         <h2 class="ui header"><%= @ticket.event %></h2>
-        <%= format_date(@ticket.date) %>
+        <%= format_date(@ticket.date) %><br />
         <%= @ticket.location %><br />
         Quantity: <%= @ticket.quantity %><br />
         Description: <%= @ticket.description %><br />
