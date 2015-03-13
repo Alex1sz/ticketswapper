@@ -15,7 +15,24 @@
   <div class="fourteen wide column">
     <h3 class="ui center aligned header">Add Tickets</h3>
 
-    <%= form_for(@ticket, :html => {:class => "ui raised small form segment"}) do |f| %>
+    <%= form_for(@ticket, :html => {:class => "ui raised form segment"}) do |f| %>
+    
+      <% if @ticket.errors.any? %>
+        <div class="ui error form segment">
+          <div class="ui error message">
+            <div class="header"><%= pluralize(@ticket.errors.count, "error") %>
+              Prohibited this article from being saved:
+            </div>
+            <div class="ui relaxed list">
+              <% @ticket.errors.full_messages.each do |msg| %>
+                <div class="item">
+                  <%= msg %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
 
       <%= f.label :event %>
       <%= f.text_field :event %>

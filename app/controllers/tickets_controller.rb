@@ -16,7 +16,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
 
     if @ticket.save
-      flash[:success] = "Succesfully added your listing!"
+      flash[:success] = 'Succesfully added your listing!'
       redirect_to @ticket
     else
       render 'new'
@@ -31,7 +31,7 @@ class TicketsController < ApplicationController
     ticket = Ticket.find(params[:id])
 
     if ticket.update_attributes(ticket_params)
-      flash[:success] = "Listing Updated"
+      flash[:success] = 'Listing Updated'
       redirect_to ticket
     else
       render 'edit'
