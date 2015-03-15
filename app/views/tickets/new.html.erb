@@ -15,6 +15,13 @@
   <div class="fourteen wide column">
     <h3 class="ui header">Add Tickets</h3>
 
+    <script type="text/javascript">
+      $('#new_ticket_select').bind('change',function(){
+        $('#new_ticket_submit_btn').click();
+      });
+      mixpanel.track_forms("#new_ticket", "Created Ticket");
+    </script>
+
     <%= form_for(@ticket, :html => {:class => "ui raised form segment"}) do |f| %>
       <% if @ticket.errors.any? %>
         <div class="ui error form segment">
