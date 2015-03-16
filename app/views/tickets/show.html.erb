@@ -6,6 +6,9 @@
         <div class="right menu">
           <a href="/tickets" class="item">View Tickets</a>
           <a href="/tickets/new" class="item">Add Tickets</a>
+          <% if user_signed_in? %>
+            <%= link_to "Sign Out", destroy_user_session_path, { method: "delete", class: "item" } %>
+          <% end %>
         </div>
       </div>
     </div>

@@ -1,4 +1,6 @@
 class TicketsController < ApplicationController
+  before_action :authenticate_user!, except: [ :index, :show ]
+  before_action :correct_user, except: [ :index, :show, :new, :create ] 
 
   def show
     @ticket = Ticket.find(params[:id])
@@ -14,6 +16,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(ticket_params)
+    @ticket.user_id = current_user.id
 
     if @ticket.save
       flash[:success] = 'Succesfully added your listing!'
