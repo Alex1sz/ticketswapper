@@ -1,8 +1,48 @@
+<div class="ui inverted masthead segment">
+  <div class="ui page grid">
+    <div class="column">
+      <div class="ui inverted blue menu">
+        <div class="header item">TicketSwapper</div>
+        <div class="right menu">
+          <a href="/tickets" class="item">View Tickets</a>
+          <a href="/tickets/new" class="item">Add Tickets</a>
+          <% if user_signed_in? %>
+            <%= link_to "Sign Out", destroy_user_session_path, { method: "delete", class: "item" } %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% if notice %>
+  <p class="ui tertiary segment"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="ui tertiary statement"><%= alert %></p>
+<% end %>
+
 <div class="ui page centered grid">
-  <h1 class="ui header">Edit your Listing</h1>
   <div class="fourteen wide column">
+    <h3 class="ui header">Edit your Listing</h3>
 
     <%= form_for @ticket, url: {action: "update"}, :html => {:class => "ui raised form segment"} do |f| %>
+      <% if @ticket.errors.any? %>
+        <div class="ui error form segment">
+          <div class="ui error message">
+            <div class="header"><%= pluralize(@ticket.errors.count, "error") %>
+              Prohibited this article from being saved:
+            </div>
+            <div class="ui relaxed list">
+              <% @ticket.errors.full_messages.each do |msg| %>
+                <div class="item">
+                  <%= msg %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
       <%= f.label :event %>
       <%= f.text_field :event %>
 
@@ -10,7 +50,7 @@
       <%= f.text_field :location %>
 
       <%= f.label :date %>
-      <%= f.date_select :date, { :order => [:month, :day, :year], :prompt => { :month => 'Select month', :day => 'Select day', :year => 'Select Year'} } %>
+      <%= f.date_select :date, { :order => [:month, :day, :year], :prompt => { :month => 'Month', :day => 'Day', :year => 'Year'} } %>
 
       <%= f.label :quantity %>
       <%= f.text_field :quantity %>
@@ -26,3 +66,6 @@
 
   </div>
 </div>
+<% if user_signed_in? %>
+  <%= link_to "Sign Out", destroy_user_session_path, method: "delete" %>
+<% end %>

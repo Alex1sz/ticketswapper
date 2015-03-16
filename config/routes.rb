@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'static_pages#home'
   resources :tickets
   # You can have the root of your site routed with "root"

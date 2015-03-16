@@ -6,11 +6,21 @@
         <div class="right menu">
           <a href="/tickets" class="item">View Tickets</a>
           <a href="/tickets/new" class="item">Add Tickets</a>
+          <% if user_signed_in? %>
+            <%= link_to "Sign Out", destroy_user_session_path, { method: "delete", class: "item" } %>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
+<% if notice %>
+  <p class="ui tertiary segment"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="ui tertiary statement"><%= alert %></p>
+<% end %>
+
 <div class="ui page centered grid">
   <div class="fourteen wide column">
     <h3 class="ui header">Add Tickets</h3>
@@ -62,3 +72,6 @@
     <% end %>
   </div>
 </div>
+<% if user_signed_in? %>
+  <%= link_to "Sign Out", destroy_user_session_path, method: "delete" %>
+<% end %>

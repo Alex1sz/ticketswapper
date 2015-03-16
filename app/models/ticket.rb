@@ -1,4 +1,6 @@
 class Ticket < ActiveRecord::Base
+  belongs_to :user
+
   validates :event, :date, :location, presence: true
 
   validates :quantity, numericality: { only_integer: true,
