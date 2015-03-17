@@ -7,9 +7,23 @@
           <a href="/tickets" class="item">View Tickets</a>
           <a href="/tickets/new" class="item">Add Tickets</a>
           <% if user_signed_in? %>
-            <%= link_to "Sign Out", destroy_user_session_path, { method: "delete", class: "item" } %>
+            <div class="ui dropdown item">
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <a href="/users/dashboard"class="item"></i> User Dashboard</a>
+                <%= link_to "Edit Account", edit_user_registration_path, { method: "get", class: "item" } %>
+                <%= link_to "Sign Out", destroy_user_session_path, { method: "delete", class: "item" } %>
+              </div>
+            </div>
+          <% else %>
+            <%= link_to "Sign In", new_user_session_path, { class: "item" } %>
           <% end %>
         </div>
+        <script type="text/javascript">
+          $('.ui.dropdown')
+            .dropdown()
+          ;
+        </script>
       </div>
     </div>
   </div>
@@ -73,5 +87,5 @@
   </div>
 </div>
 <% if user_signed_in? %>
-  <%= link_to "Sign Out", destroy_user_session_path, method: "delete" %>
+  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 <% end %>

@@ -30,27 +30,30 @@
 </div>
 <div class="ui page centered grid">
   <div class="fourteen wide column">
-    <h3 class="ui header"> Tickets Index </h3>
+    <h3 class="ui header">Your Tickets</h3>
     <table class="ui table">
       <thead>
         <tr>
           <th>Date</th>
           <th>Event</th>
           <th>Quantity</th>
-          <th>Location</th>
+          <th>View Page</th>
+          <th>Edit Page</th>
         </tr>
       </thead>
       <tbody>
         <% @tickets.each do |ticket| %>
           <tr>
             <td><%= format_date(ticket.date) %></td>
-            <td><a href="/tickets/<%= ticket.id %>"> <%= ticket.event %> </a></td>
+            <td><%= ticket.event %></td>
             <td><%= ticket.quantity %></td>
-            <td><%= ticket.location %></td>
+            <td><a href="/tickets/<%= ticket.id %>">View</a></td>
+            <td><a href="/tickets/<%= ticket.id %>">Edit</a></td>
           </tr>
         <% end %>
       </tbody>
     </table>
-    <%= will_paginate @tickets %>
   </div>
 </div>
+
+
