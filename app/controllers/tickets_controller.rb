@@ -15,8 +15,7 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.new(ticket_params)
-    @ticket.user_id = current_user.id
+    @ticket = current_user.tickets.build(ticket_params)
 
     if @ticket.save
       flash[:success] = 'Succesfully added your listing!'
