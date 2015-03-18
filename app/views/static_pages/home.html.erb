@@ -7,13 +7,24 @@
           <a href="/tickets" class="item">View Tickets</a>
           <a href="/tickets/new" class="item">Add Tickets</a>
           <% if user_signed_in? %>
-            <%= link_to "Sign Out", destroy_user_session_path, { method: "delete", class: "item" } %>
+            <div class="ui dropdown item">
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <a href="/users/dashboard"class="item"></i> User Dashboard</a>
+                <%= link_to "Edit Account", edit_user_registration_path, { method: "get", class: "item" } %>
+                <%= link_to "Sign Out", destroy_user_session_path, { method: "delete", class: "item" } %>
+              </div>
+            </div>
+          <% else %>
+            <%= link_to "Sign In", new_user_session_path, { class: "item" } %>
           <% end %>
         </div>
+        <script type="text/javascript">
+          $('.ui.dropdown')
+            .dropdown()
+          ;
+        </script>
       </div>
-      <script type="text/javascript">
-        mixpanel.track_links("#right menu a", "Right Menu Link Clicked");
-      </script>
     </div>
   </div>
 </div>
@@ -31,7 +42,7 @@
     </div>
     <div class="sixteen wide column">
       <h3 class="ui header">How it works:</h3>
-      <p> List your available tickets! Site visitors contact the lister via email. Once an agreement is made, forward the agreement to <a href="mailto:service@ticketswapper.com">service@ticketswapper.com</a> and transfer the tickets to <a href="mailto:service@ticketswapper.com">service@ticketswapper.com</a>. TicketSwapper receives each user's transfer, and verifies the tickets match the agreed to tickets before accepting.</p>
+      <p> List your available tickets! Site visitors contact the lister via email. Once an agreement is made, forward the agreement to <a href="mailto:service@ticketswapper.com">service@ticketswapper.com</a> and transfer the tickets to <a href="mailto:service@ticketswapper.com">service@ticketswapper.com</a>. TicketSwapper receives each user's transfer, and verifies the tickets match the agreed to tickets before acceptance.</p>
       <p>TicketSwapper does not accept either user's transfer to TicketSwapper until both transfers arrive and are verified. Post verification, TicketSwapper transfers the tickets to the new owners, and the transaction is complete. </p>
       <div class="row">
       </div>

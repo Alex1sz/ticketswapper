@@ -3667,7 +3667,7 @@ i.flag:not(.icon) {
 i.flag:not(.icon):before {
   display: inline-block;
   content: '';
-  background: url("themes/default/assets/images/flags.png") no-repeat 0px 0px;
+  background: url("assets/images/flags.png") no-repeat 0px 0px;
   width: 16px;
   height: 11px;
 }
@@ -5600,8 +5600,8 @@ a.ui.inverted.yellow.header:hover {
 
 @font-face {
   font-family: 'Icons';
-  src: url("themes/default/assets/fonts/icons.eot");
-  src: url("themes/default/assets/fonts/icons.eot?#iefix") format('embedded-opentype'), url("themes/default/assets/fonts/icons.woff2") format('woff'), url("themes/default/assets/fonts/icons.woff") format('woff'), url("themes/default/assets/fonts/icons.ttf") format('truetype'), url("themes/default/assets/fonts/icons.svg#icons") format('svg');
+  src: url("public/icons.eot");
+  src: url("public/icons.eot?#iefix") format('embedded-opentype'), url("public/icons.woff2") format('woff'), url("public/icons.woff") format('woff'), url("public/icons.ttf") format('truetype'), url("public/icons.svg#icons") format('svg');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;

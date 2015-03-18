@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'static_pages#home'
   resources :tickets
+  get 'users/dashboard', to: 'users#dashboard'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
