@@ -28,7 +28,16 @@
     </div>
   </div>
 </div>
+
 <div class="ui page centered grid">
+  <div class="thirteen wide column">
+    <%= form_tag(search_path, :class =>"ui fluid action input", :method => :get) do %>
+      <%= search_field_tag :query, params[:query], :class => 'prompt', :placeholder => 'Search...' %>
+      <button class="ui blue icon button">  
+        <i class="search icon"></i>
+      </button>
+    <% end %>
+  </div>
   <div class="fourteen wide column">
     <h3 class="ui header"> Tickets Index </h3>
     <table class="ui table">

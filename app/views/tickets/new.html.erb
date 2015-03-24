@@ -68,7 +68,7 @@
       <%= f.text_field :event %>
 
       <%= f.label :location %>
-      <%= f.text_field :location %>
+      <%= f.text_field :location, :placeholder => "City, State" %>
 
       <%= f.label :date %>
       <%= f.date_select :date, { :order => [:month, :day, :year], :prompt => { :month => 'Month', :day => 'Day', :year => 'Year'} } %>
@@ -80,12 +80,9 @@
       <%= f.text_field :email %>
 
       <%= f.label :description %>
-      <%= f.text_area :description, :placeholder => "Please provide a brief description of your tickets and what you want in exchange. Include seating info, general admission or seat, section, and row." %>
+      <%= f.text_area :description, :placeholder => "Please provide a brief description of your tickets and what you want in exchange. Include seating info such as section, row, or general admission." %>
 
       <%= f.submit "Create listing", :class => "ui fluid blue button" %>
     <% end %>
   </div>
 </div>
-<% if user_signed_in? %>
-  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-<% end %>

@@ -1,0 +1,38 @@
+<div class="ui page centered grid">
+  <div class="thirteen wide column">
+    <%= form_tag(search_path, :class =>"ui fluid action input", :method => :get) do %>
+      <%= search_field_tag :query, params[:query], :class => 'prompt', :placeholder => 'Search...' %>
+      <button class="ui blue icon button">  
+        <i class="search icon"></i>
+      </button>
+    <% end %>
+  </div>
+
+  <% if @search.nil? %>
+  <% else %>
+    <div class="fourteen wide column">
+      <h3 class="ui header">Search Results</h3>
+       
+      <table class="ui table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Event</th>
+            <th>Quantity</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @search.each do |ticket| %>
+            <tr>
+              <td><%= format_date(ticket.date) %></td>
+              <td><a href="/tickets/<%= ticket.id %>"> <%= ticket.event %> </a></td>
+              <td><%= ticket.quantity %></td>
+              <td><%= ticket.location %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>
