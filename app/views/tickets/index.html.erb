@@ -33,8 +33,8 @@
   <div class="thirteen wide column">
     <%= form_tag(search_path, :class =>"ui fluid action input", :method => :get) do %>
       <%= search_field_tag :query, params[:query], :class => 'prompt', :placeholder => 'Search...' %>
-      <button class="ui blue icon button">  
-        <i class="search icon"></i>
+      <button class="ui blue button">  
+        Search
       </button>
     <% end %>
   </div>
