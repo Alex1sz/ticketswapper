@@ -1,73 +1,93 @@
-<div class="ui inverted masthead segment">
-  <div class="ui page grid">
-    <div class="column">
-      <div class="ui inverted blue menu">
-        <div class="header item">SwapStubs</div>
-        <div class="right menu">
-          <a href="/tickets" class="item">View Tickets</a>
-          <a href="/tickets/new" class="item">Add Tickets</a>
-          <% if user_signed_in? %>
-            <div class="ui dropdown item">
-              <i class="dropdown icon"></i>
-              <div class="menu">
-                <a href="/users/dashboard"class="item"></i> User Dashboard</a>
-                <%= link_to "Edit Account", edit_user_registration_path, { method: "get", class: "item" } %>
-                <%= link_to "Sign Out", destroy_user_session_path, { method: "delete", class: "item" } %>
+<body id="home">
+  <div class="ui inverted segment">
+    <div class="ui centered page grid">
+      <div class="column">
+        <div class="ui inverted blue menu">
+          <div class="header item">SwapStubs</div>
+          <div class="right menu">
+            <a href="/tickets" class="item">View Tickets</a>
+            <a href="/tickets/new" class="item">Add Tickets</a>
+            <% if user_signed_in? %>
+              <div class="ui dropdown item">
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  <a href="/users/dashboard"class="item"></i> User Dashboard</a>
+                  <%= link_to "Edit Account", edit_user_registration_path, { method: "get", class: "item" } %>
+                  <%= link_to "Sign Out", destroy_user_session_path, { method: "delete", class: "item" } %>
+                </div>
               </div>
+            <% else %>
+              <%= link_to "Sign In", new_user_session_path, { class: "item" } %>
+            <% end %>
+          </div>
+          <script type="text/javascript">
+            $('.ui.dropdown')
+              .dropdown()
+            ;
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% if notice %>
+    <p class="ui tertiary segment"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="ui tertiary statement"><%= alert %></p>
+  <% end %>
+
+  <div class="ui vertical segment">
+    <div class="ui centered page grid">
+      <div class="thirteen wide column">
+
+        <%= form_tag(search_path, :class =>"ui fluid action input", :method => :get) do %>
+          <%= search_field_tag :query, params[:query], :class => 'prompt', :placeholder => 'Search...' %>
+          <button class="ui blue icon button">  
+            <i class="search icon"></i>
+          </button>
+        <% end %>
+
+        <% if @search.nil? %>
+        <% else %>
+          <h3 class="ui header">Search Results</h3>
+          <% @search.each do |ticket| %>
+            <div class="item">
+              <%= ticket.event %>, <%= ticket.location %> <%= ticket.date %>
             </div>
-          <% else %>
-            <%= link_to "Sign In", new_user_session_path, { class: "item" } %>
           <% end %>
-        </div>
-        <script type="text/javascript">
-          $('.ui.dropdown')
-            .dropdown()
-          ;
-        </script>
+        <% end %>
       </div>
-    </div>
-  </div>
-</div>
-<% if notice %>
-  <p class="ui tertiary segment"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="ui tertiary statement"><%= alert %></p>
-<% end %>
-<div class="ui vertical segment">
-  <div class="ui page centered grid">
-    <div class="sixteen wide column">
-      <div class="row">
-      </div>
-    </div>
-    <div class="sixteen wide column">
-      <h3 class="ui header">How it works:</h3>
-      <p> List your available tickets! Site visitors contact the lister via email. Once an agreement is made, forward the agreement to <a href="mailto:service@swapstubs.com">service@swapstubs.com</a> and transfer the tickets to <a href="mailto:service@swapstubs.com">service@swapstubs.com</a>. SwapStubs receives each user's transfer, and verifies the tickets match the agreed to tickets before acceptance.</p>
-      <p>SwapStubs does not accept either user's transfer to SwapStubs until both transfers arrive and are verified. Post verification, SwapStubs transfers the tickets to the new owners, and the transaction is complete. </p>
-      <div class="row">
-      </div>
-    </div>
-  </div>
-</div>
-<div class="ui inverted vertical segment">
-  <div class="ui page centered grid">
-    <div class="sixteen wide column">
-      <div class="ui two column grid">
-        <div class="row">
-        </div>
-        <div class="column">
-          <h3 class="ui blue header">What types of tickets work?</h3>
-          <p>Most tickets purchased on Ticketmaster, or livenation are transferable. Tickets for some Eventbrite events are also transferable depending on whether the event organizer enabled the feature or not. Many college sporting events are also transferable. SwapStubs does not accept tickets by mail or physical tickets, to process transactions tickets must be electronically transferable. Send specific questions to <a href="mailto:service@swapstubs.com">service@swapstubs.com</a>. </p>
-        </div>
-        <div class="column">
-          <h3 class="ui blue header">Are my tickets transferable?</h3>
-          <p> For Ticketmaster or livenation events log into the account you purchased your tickets. Visit the view all orders page, and look for the Transfer button to the right of the red My Tickets button.
-          </p>
-          <p>SwapStubs does not accept tickets by mail and does not allow transactions involving users mailing tickets to eachother.</p>
-        </div>
+      <div class="sixteen wide column">
         <div class="row">
         </div>
       </div>
+      <div class="sixteen wide column">
+        <div class="row">
+        </div>
+      </div>
+      <div class="sixteen wide column">
+        <h3 class="ui header">How it works:</h3>
+        <p> List your available tickets! Site visitors contact the lister via email. Once an agreement is made, forward the agreement to <a href="mailto:service@swapstubs.com">service@swapstubs.com</a> and transfer the tickets to <a href="mailto:service@swapstubs.com">service@swapstubs.com</a>. SwapStubs receives each user's transfer, and verifies the tickets match the agreed to tickets before acceptance.</p>
+        <p>SwapStubs does not accept either user's transfer to SwapStubs until both transfers arrive and are verified. Post verification, SwapStubs transfers the tickets to the new owners, and the transaction is complete. </p>
+      </div>
     </div>
   </div>
-</div>
+  <div class="ui inverted feature segment">
+    <div class="ui centered page grid">
+      <div class="sixteen wide column">
+        <div class="ui two column grid">
+          <div class="column">
+            <h3 class="ui blue header">What types of tickets work?</h3>
+            <p>Most tickets purchased on Ticketmaster, or livenation are transferable. Tickets for some Eventbrite events are also transferable depending on whether the event organizer enabled the feature or not. Many college sporting events are also transferable. SwapStubs does not accept tickets by mail or physical tickets, to process transactions tickets must be electronically transferable. Send specific questions to <a href="mailto:service@swapstubs.com">service@swapstubs.com</a>. </p>
+          </div>
+          <div class="column">
+            <h3 class="ui blue header">Are my tickets transferable?</h3>
+            <p> For Ticketmaster or livenation events log into the account you purchased your tickets. Visit the view all orders page, and look for the Transfer button to the right of the red My Tickets button.
+            </p>
+            <p>SwapStubs does not accept tickets by mail and does not allow transactions involving users mailing tickets to eachother.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

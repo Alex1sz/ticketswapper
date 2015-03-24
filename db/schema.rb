@@ -11,18 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318185249) do
+ActiveRecord::Schema.define(version: 20150319232613) do
 
   create_table "tickets", force: :cascade do |t|
-    t.string   "event",       null: false
-    t.date     "date",        null: false
-    t.integer  "quantity",    null: false
-    t.string   "location",    null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "description", null: false
-    t.string   "email",       null: false
-    t.integer  "user_id",     null: false
+    t.string   "event",                            null: false
+    t.date     "date",                             null: false
+    t.integer  "quantity",                         null: false
+    t.string   "location",                         null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "description",                      null: false
+    t.string   "email",                            null: false
+    t.integer  "user_id",                          null: false
+    t.text     "searchable_content", default: "t"
   end
 
   add_index "tickets", ["user_id"], name: "index_tickets_on_user_id"

@@ -28,6 +28,9 @@ gem 'devise'
 # Stripe for payment processing
 gem 'stripe'
 
+# Sunspot for solr search
+gem 'sunspot_rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -50,6 +53,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'rubocop'
   gem 'capybara'
+  # sunspot_solr for pre-packaged Solr distribution for use in development
+  gem 'sunspot_solr'
 end
 
 group :production do
