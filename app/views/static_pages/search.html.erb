@@ -1,33 +1,4 @@
-<div class="ui inverted segment">
-  <div class="ui centered page grid">
-    <div class="column">
-      <div class="ui inverted blue menu">
-        <div class="header item">SwapStubs</div>
-        <div class="right menu">
-          <a href="/tickets" class="item">View Tickets</a>
-          <a href="/tickets/new" class="item">Add Tickets</a>
-          <% if user_signed_in? %>
-            <div class="ui dropdown item">
-              <i class="dropdown icon"></i>
-              <div class="menu">
-                <a href="/users/dashboard"class="item"></i> User Dashboard</a>
-                <%= link_to "Edit Account", edit_user_registration_path, { method: "get", class: "item" } %>
-                <%= link_to "Sign Out", destroy_user_session_path, { method: "delete", class: "item" } %>
-              </div>
-            </div>
-          <% else %>
-            <%= link_to "Sign In", new_user_session_path, { class: "item" } %>
-          <% end %>
-        </div>
-        <script type="text/javascript">
-          $('.ui.dropdown')
-            .dropdown()
-          ;
-        </script>
-      </div>
-    </div>
-  </div>
-</div>
+
 <div class="ui page centered grid">
   <div class="thirteen wide column">
     <%= form_tag(search_path, :class =>"ui fluid action input", :method => :get) do %>
