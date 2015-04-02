@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   before_action :authenticate_user!, except: [ :index, :show ]
-  before_action :correct_user, except: [ :index, :show, :new, :create ] 
+  before_action :redirect_if_not_ticket_creator!, except: [ :index, :show, :new, :create ]
 
   def show
     @ticket = Ticket.find(params[:id])
@@ -44,5 +44,9 @@ class TicketsController < ApplicationController
 
   def ticket_params 
     params.require(:ticket).permit(:event, :date, :quantity, :location, :description, :email)
+  end
+
+  def redirect_if_not_ticket_creator!
+    redirect_to root_path unless Ticket.find(params[:id]).created_by?(current_user)
   end
 end

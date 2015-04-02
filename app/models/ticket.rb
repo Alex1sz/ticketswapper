@@ -28,4 +28,8 @@ class Ticket < ActiveRecord::Base
     end
     @tickets = @search.results
   end
+
+  def created_by?(user)
+    self.user == user
+  end
 end

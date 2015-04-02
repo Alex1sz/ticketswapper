@@ -8,6 +8,7 @@ RSpec.describe Ticket do
       email: "example@example.com",
       location: "new york, ny",
       event: "Cool thing",
+      user_id: 1,
       description: "Row 3, Section 15. Looking to trade these tickets to either Cool thing weekend 2 or a Lakers game. For Lakers I'd want lower level seats and at least two tickets." }
   }
 
@@ -55,14 +56,14 @@ RSpec.describe Ticket do
       expect(ticket).not_to be_valid
     end
 
-    it "does not accept a description with a length greater than 400" do
-      date = Date.new(2015,4,10)
-      quantity = "1"
-      email = "example@example.com"
-      description = "Really long description really long description really long description really long description really long description really long description really long description really long description really long description really long description really long description really long description really long description really long description really long description really long description really long description"
-      ticket = Ticket.create(quantity: quantity, event: "UGK", date: date, location: "nyc", description: description, email: email)
-      expect(ticket).not_to be_valid
-    end
+#    it "does not accept a description with a length greater than 2000" do
+#      date = Date.new(2015,4,10)
+#      quantity = "1"
+#      email = "example@example.com"
+#      description = "Really long description really long description really long description really long description really long description really long description really long description really long description really long description really long description really long description really long description really long description really long description really long description really long description really long description"
+#      ticket = Ticket.create(quantity: quantity, event: "UGK", date: date, location: "nyc", description: description, email: email)
+#      expect(ticket).not_to be_valid
+ #   end
 
     it "does not accept an email address that does not include @" do
       date = Date.new(2015,4,10)

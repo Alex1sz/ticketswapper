@@ -21,7 +21,7 @@
         <div class="ui error form segment">
           <div class="ui error message">
             <div class="header"><%= pluralize(@ticket.errors.count, "error") %>
-              Prohibited this article from being saved:
+              Prohibited this listing from being saved:
             </div>
             <div class="ui relaxed list">
               <% @ticket.errors.full_messages.each do |msg| %>

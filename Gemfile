@@ -52,6 +52,7 @@ group :development, :test do
   # purge data from db on every test run
   gem 'database_cleaner'
   gem 'rubocop'
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'capybara'
   # sunspot_solr for pre-packaged Solr distribution for use in development
   gem 'sunspot_solr'
