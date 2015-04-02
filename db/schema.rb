@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319232613) do
+ActiveRecord::Schema.define(version: 20150401012934) do
 
   create_table "tickets", force: :cascade do |t|
     t.string   "event",                            null: false
