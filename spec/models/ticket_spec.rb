@@ -10,7 +10,7 @@ RSpec.describe Ticket do
       event: "Cool thing",
       user_id: 1,
       description: "Row 3, Section 15. Looking to trade these tickets to either Cool thing weekend 2 or a Lakers game. For Lakers I'd want lower level seats and at least two tickets." }
-  }
+  } 
 
   subject(:ticket) { Ticket.create(valid_attributes) }
   it "creates when all attributes are valid" do
