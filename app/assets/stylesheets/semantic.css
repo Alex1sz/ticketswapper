@@ -5600,8 +5600,8 @@ a.ui.inverted.yellow.header:hover {
 
 @font-face {
   font-family: 'Icons';
-  src: url('icons.eot');
-  src: url('icons.eot?#iefix') format('embedded-opentype'), url('icons.woff2') format('woff'), url('icons.woff') format('woff'), url('icons.ttf') format('truetype'), url('icons.svg#icons') format('svg');
+  src: url('/assets/icons.eot');
+  src: url('/assets/icons.eot?#iefix') format('embedded-opentype'), url('/assets/icons.woff2') format('woff'), url('/assets/icons.woff') format('woff'), url('/assets/icons.ttf') format('truetype'), url('/assets/icons.svg#icons') format('svg');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -24362,8 +24362,8 @@ select.ui.dropdown {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding-left: 1.1em !important;
   /* Add in spacing for scroll bar */
-  padding-right: -webkit-calc( 1.1em  + 1em) !important~;
-  padding-right: calc( 1.1em  + 1em) !important~;
+  padding-right: -webkit-calc( 1.1em  + 1em) !important;
+  padding-right: calc( 1.1em  + 1em) !important;
   white-space: normal;
   word-wrap: normal;
 }
