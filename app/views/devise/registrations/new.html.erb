@@ -1,4 +1,4 @@
-<div class="ui page grid">
+<div class="ui padded page grid">
   <div class="sixteen wide column">
     <h2 class="ui header">Sign up</h2>
 
@@ -6,7 +6,7 @@
       <%= devise_error_messages! %>
 
       <div class="field">
-        <%= f.label :email %><br />
+        <%= f.label :email %>
         <%= f.email_field :email, autofocus: true %>
       </div>
 
@@ -19,7 +19,7 @@
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
 

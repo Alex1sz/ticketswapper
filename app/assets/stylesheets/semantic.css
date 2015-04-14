@@ -5600,8 +5600,8 @@ a.ui.inverted.yellow.header:hover {
 
 @font-face {
   font-family: 'Icons';
-  src: url('/assets/icons.eot');
-  src: url('/assets/icons.eot?#iefix') format('embedded-opentype'), url('/assets/icons.woff2') format('woff'), url('/assets/icons.woff') format('woff'), url('/assets/icons.ttf') format('truetype'), url('/assets/icons.svg#icons') format('svg');
+  src: url("/assets/icons.eot");
+  src: url("/assets/icons.eot?#iefix") format('embedded-opentype'), url("/assets/icons.woff2") format('woff'), url("/assets/icons.woff") format('woff'), url("/assets/icons.ttf") format('truetype'), url("/assets/icons.svg#icons") format('svg');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;

@@ -1,16 +1,16 @@
-<div class="ui centered page grid">
+<div class="ui centered padded page grid">
   <div class="sixteen wide column">    
     <h2 class="ui header">Log in</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { :class => "ui form segment" }) do |f| %>
 
       <div class="field">
-        <%= f.label :email %><br />
+        <%= f.label :email %>
         <%= f.email_field :email, autofocus: true %>
       </div>
 
       <div class="field">
-        <%= f.label :password %><br />
+        <%= f.label :password %>
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
 
