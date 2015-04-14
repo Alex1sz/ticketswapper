@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require mixpanel
 //= require semantic
 $(document).semantic();
