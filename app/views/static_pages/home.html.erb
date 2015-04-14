@@ -1,10 +1,14 @@
 <body id="home">
   
   <% if notice %>
-    <p class="ui tertiary segment"><%= notice %></p>
+    <div class="ui padded page grid">
+      <p class="ui tertiary segment"><%= notice %></p>
+    </div>
   <% end %>
   <% if alert %>
-    <p class="ui tertiary statement"><%= alert %></p>
+    <div class="ui padded page grid">
+      <p class="ui tertiary statement"><%= alert %></p>
+    </div>
   <% end %>
 
   <div class="ui vertical segment">
@@ -49,8 +53,8 @@
   </div>
   <div class="ui inverted vertical feature segment">
     <div class="ui padded page grid">
-      <div class="column">
-        <div class="ui two column stackable equal height padded grid">
+      <div class="sixteen wide column">
+        <div class="ui two column stackable relaxed padded grid">
           <div class="column">
             <div class="ui basic inverted horizontal segment">
               <h2 class="ui blue header">What types of tickets work?</h2>
@@ -62,7 +66,7 @@
               <h2 class="ui blue header">Are my tickets transferable?</h2>
               <p> For Ticketmaster or livenation events log into the account you purchased your tickets. Visit the view all orders page, and look for the Transfer button to the right of the red My Tickets button.
               </p>
-              <p>SwapStubs does not accept tickets by mail and does not [process transactions involving users mailing tickets to eachother.</p>
+              <p>SwapStubs does not accept tickets by mail and will not process transactions involving users mailed tickets.</p>
             </div>
           </div>
         </div>
