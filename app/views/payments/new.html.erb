@@ -3,22 +3,22 @@
 <div class="ui page centered padded grid">
   <div class="fourteen wide column">
     <h2 class="ui header">Pay Service Fee</h2>
-    <p>SwapStubs requires a $5.00 service charge for processing and servicing your transaction.</p>
-    <p>Submit Service charge after receiving User Agreement Approval email from service@swapstubs.com.</p>
-    <p>Payment of service fee authorizes SwapStub to verify your tickets, and process each users transfer of tickets. Service charge is non refundable.</p>
+    <p>SwapStubs requires a $6.99 Service Fee for processing and servicing your transaction. The $ 6.99 Service Fee covers the total cost of service for both users in the deal. Either person in the deal is able to pay the Service Fee, but the fee must be paid in total and cannot split. </p>
+    <p>Please Submit Service Fee, after you have sent your ticket exchange agreement to service@swapstubs.com.</p>
+    <p>Payment of the service fee authorizes SwapStub to verify your tickets, and process each users transfer of tickets. The Service charge is non refundable. Please direct any questions to <a href="mailto:service@swapstubs.com">service@swapstubs.com</a></p>
     <div class="ui center aligned segment">
 
       <%= form_tag payments_path do %>
         <article>
           <label class="amount">
-            <span>Amount: $5.00</span>
+            <span>Amount: $6.99</span>
           </label>
         </article>
 
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                 data-description="Service Fee"
-                data-amount="500">
+                data-amount="699">
         </script>
       <% end %>
 
