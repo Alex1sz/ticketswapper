@@ -6,7 +6,7 @@
     <p class="ui tertiary segment"><%= notice %></p>
   <% end %>
   <% if alert %>
-    <p class="ui tertiary statement"><%= alert %></p>
+    <p class="ui tertiary segment"><%= alert %></p>
   <% end %>
 
   <div class="ui vertical segment">
@@ -39,27 +39,62 @@
         </div>
       </div>
     </div>
-    <div class="ui padded page grid">
+    <div class="ui page grid">
       <div class="sixteen wide column">
-        <div class="ui basic horizontal segment">
-          <h2 class="ui header">How it works:</h2>
-          <p>List your available tickets! Site visitors contact ticket listers via email. Once an agreement is made, forward the agreement to <a href="mailto:service@swapstubs.com">service@swapstubs.com</a> and transfer the tickets to <a href="mailto:service@swapstubs.com">service@swapstubs.com</a>. After receiving the tickets SwapStubs, verifies the tickets match those described in the agreement before accepting the transfer.</p>
-          <p>SwapStubs waits to verify and accept, until both user's transfers have arrived and are verified. Post verification, SwapStubs transfers the tickets to the new owners, and the transaction is complete. </p>
+        <h2 class="ui header">How it works:</h2>
+        <div class="ui three column stackable grid">
+          <div class="row"></div>
+          <div class="column">
+            <div class="ui basic horizontal segment">
+              <div class="row">
+                <h3 class="ui center aligned icon header">
+                  <i class="find icon"></i>
+                  Post tickets. Find tickets!
+                </h3>
+              </div>
+              <p>Post your available tickets. Posting tickets is quick and easy. Site visitors find tickets, and contact the ticket lister directly via email.
+              </p>
+              <p>Once an agreement is made, forward it to <a href="mailto:service@swapstubs.com">service@swapstubs.com</a> and transfer the tickets to <a href="mailto:service@swapstubs.com">service@swapstubs.com</a>. The agreement should include ticket details such as seating info (section, row, seat numbers etc.) Next, both user's transfer their part of the deal to <a href="mailto:service@swapstubs.com">service@swapstubs.com</a>.</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="ui basic horizontal segment">
+              <div class="row">
+                <h3 class="ui center aligned icon header">
+                  <i class="checkmark icon"></i>
+                  SwapStubs verifies tickets
+                </h3>
+              </div>
+              <p>Ticket verification is quick and efficient. Tickets are typically verified minutes after SwapStubs receives them. Verification ensures that the tickets match the tickets as described in the agreement, and that the tickets are legit. Verification ensures that both parties adhere to the agreement.</p>
+              <p>After both transfers are verified, and confirmed, SwapStubs transfers the tickets to the new owner and completes the exchange.</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="ui basic horizontal segment">
+              <div class="row">
+                <h3 class="ui center aligned icon header">
+                  <i class="money icon"></i>
+                  Save Time and Money
+                </h3>
+              </div>
+              <p>SwapStubs processes the exchange, verifies the tickets, and ensures both parties get their part of the agreement. The $ 6.99 Service Fee, covers the cost of service, ticket verification, and processing of the deal. The Fee should be paid when the agreement is sent to SwapStubs, or soon after. Visit <%= link_to "Pay Service Fee", new_payment_path, { method: "get"} %> to pay. SwapStubs also offers its services for deals and tickets found elsewhere. To use SwapStubs escrow services for tickets not listed on SwapStubs, email details to <a href="mailto:service@swapstubs.com">service@swapstubs.com</a>.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="ui inverted feature segment">
-    <div class="ui padded page grid">
+    <div class="ui page grid">
       <div class="sixteen wide column">
-        <div class="ui two column stackable equal height relaxed padded grid">
+        <div class="ui two column stackable equal height relaxed grid">
           <div class="column">
             <div class="ui basic inverted horizontal segment">
               <div class="ui center aligned blue icon header">
                 <i class="ticket icon"></i>
                 What types of tickets work?
               </div>
-              <p>Most tickets purchased on Ticketmaster, or livenation are transferable. Tickets for some Eventbrite events are also transferable depending on whether the event organizer enabled the feature or not. Many college sporting events are also transferable. SwapStubs does not accept tickets by mail or physical tickets, to process transactions tickets must be electronically transferable. Send specific questions to <a href="mailto:service@swapstubs.com">service@swapstubs.com</a>. </p>
+              <p>Most tickets purchased on Ticketmaster, and Livenation are transferable. The majority of E-tickets are transferable. Many college sporting events are also transferable. Tickets for certain Eventbrite events are also transferable, for Eventbrite the event organizer has the option to enable ticket transfers while setting up the event. SwapStubs does not currently accept tickets by mail or physical tickets. In order to process transactions, tickets must be electronically transferable. Direct specific questions to <a href="mailto:service@swapstubs.com">service@swapstubs.com</a>.</p>
             </div>
           </div>
           <div class="column">
@@ -68,9 +103,9 @@
                 <i class="help icon"></i>
                 Are my tickets transferable?
               </div>
-              <p>For Ticketmaster or livenation events log into the account you purchased your tickets. Visit the View All Orders page, and look for the Transfer button which is directly to the right of the red My Tickets button.
+              <p>For Ticketmaster and Livenation events log into the account where you purchased your tickets. After you log into your account, click on the 'View All Orders' link which is located below the Orders header on the left column of the screen. Once at the 'View All Orders' page find the 'Transfer' button. The Transfer button appears immediately to the right of the red 'My Tickets' button.
               </p>
-              <p>SwapStubs does not accept tickets by mail and will not process transactions involving users mailed tickets.</p>
+              <p>SwapStubs does not accept tickets by mail and does not process transactions involving tickets sent by mail.</p>
             </div>
           </div>
         </div>
