@@ -60,4 +60,6 @@ end
 
 group :production do
   gem 'pg'
+  gem 'unicorn', '4.9.0'
+  gem 'timeout'
 end
