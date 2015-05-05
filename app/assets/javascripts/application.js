@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require semantic
 //= require turbolinks
 //= require_tree .
-//= require semantic
 $(document).semantic();
