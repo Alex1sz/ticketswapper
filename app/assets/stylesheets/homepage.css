@@ -78,11 +78,11 @@ html {
 @media only screen and (max-width : 768px) {
 
   #home .menu .right.menu > .item {
-    display: none;
+    display: inline-block;
   }
 
   #home .menu .right.menu > .mobile.item {
-    display: block;
+    display: inline-block;
   }
   #home .menu .right.menu > .mobile.item .menu {
     left: auto;

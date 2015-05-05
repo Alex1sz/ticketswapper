@@ -1,4 +1,4 @@
-# ticketswapper
+# TicketSwapper
 ## User-to-user ticket exchange with escrow services.
 
 To view ticketswapper live visit https://www.swapstubs.com/
