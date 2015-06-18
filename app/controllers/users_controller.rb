@@ -4,5 +4,4 @@ class UsersController < ApplicationController
   def dashboard
     @tickets = current_user.tickets.all
   end
-
 end
