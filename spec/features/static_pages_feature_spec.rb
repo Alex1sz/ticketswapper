@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "Links to tickets pages", :type => :feature do
-  scenario "user views homepage and sees tickets links" do 
+RSpec.feature "Has link to tickets pages:", :type => :feature do
+  scenario "user visits" do 
     visit "/"
 
     expect(page).to have_link("View Tickets")
