@@ -1,19 +1,19 @@
 require 'rails_helper'
 
-RSpec.feature "Ticket form requires session:", :type => :feature do
-  scenario "when user visits tickets page" do
+RSpec.feature "User without session visits /tickets/new:", :type => :feature do
+  scenario "User is prompted to log in" do
     visit "/tickets/new"
 
     expect(page).to have_content("Log in") 
   end
 end
 
-RSpec.feature "User without session can login and create tickets:", :type => :feature do
+RSpec.feature "User is able to login and create tickets:", :type => :feature do
   before :each do
     user = User.create!(:email => "panda@example.com", :password => "password12", :password => "password12")
   end
 
-  scenario "User submits valid credentials" do
+  scenario "session is created" do
     visit "/tickets/new"
     within("#new_user") do
       fill_in 'user_email', :with => "panda@example.com"
@@ -24,7 +24,7 @@ RSpec.feature "User without session can login and create tickets:", :type => :fe
     expect(page).to have_content('Signed in')
   end
 
-  scenario "User submits valid ticket form" do
+  scenario "tickets are persisted" do
     visit "/tickets/new"
 
     within("#new_user") do
@@ -49,13 +49,13 @@ RSpec.feature "User without session can login and create tickets:", :type => :fe
   end
 end
   
-RSpec.feature "Validates ticket values:", :type => :feature do
+RSpec.feature "Ticket values are validated:", :type => :feature do
 
   before :each do
     user = User.create!(:email => "panda@example.com", :password => "password12", :password => "password12")
   end
 
-  scenario "Form with empty values is not accepted" do
+  scenario "Form with empty values does not persist" do
     visit "/tickets/new"
 
     within("#new_user") do
@@ -71,13 +71,13 @@ RSpec.feature "Validates ticket values:", :type => :feature do
 end
 
 
-RSpec.feature "Error Messages are displayed:", :type => :feature do
+RSpec.feature "Displays error messages to user:", :type => :feature do
 
   before :each do 
     user = User.create!(:email => "panda@example.com", :password => "password12", :password => "password12")
   end
 
-  scenario "tickets submitted w/ invalid email address" do
+  scenario "Shows error message for invalid email address" do
     visit "/tickets/new"
     within("#new_user") do
       fill_in 'user_email', :with => "panda@example.com"
@@ -100,7 +100,7 @@ RSpec.feature "Error Messages are displayed:", :type => :feature do
     expect(page).to have_text("Email is invalid")
   end
 
-  scenario "Non integer ticket quantity" do
+  scenario "Shows error message for non integer ticket quantity" do
     visit "/tickets/new"
 
     within("#new_user") do
