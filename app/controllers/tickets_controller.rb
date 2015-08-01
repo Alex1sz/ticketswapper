@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  require 'will_paginate/array'
   before_action :authenticate_user!, except: [ :index, :show ]
   before_action :redirect_if_not_ticket_creator!, except: [ :index, :show, :new, :create ]
 
